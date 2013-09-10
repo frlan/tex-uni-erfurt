@@ -1,0 +1,224 @@
+\documentclass[
+	a4paper,%
+	oneside,%
+	12pt,%
+	halfparskip,%
+	headinclude,%
+	headsepline,% Trennungslinie fuer Kopfzeile
+	plainheadsepline,
+	footsepline, % Trennungslinie fuer Fußzeile
+	plainfootsepline,
+	bibtotoc,%
+	liststotoc,%
+	toc=bibliography,
+	]{scrbook}
+
+\date{\today}
+
+\usepackage[
+	a4paper,
+	left=3cm,
+	right=3cm,
+	top=3cm,
+	bottom=3cm
+	]{geometry}
+
+
+% 1,5 Zeilen Text
+\usepackage[onehalfspacing]{setspace}
+
+% Schrift und Input-Encoding
+\usepackage{palatino}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[draft=false]{microtype}
+
+% Deutsche Bezeichnungen für Inhaltsverzeichnis etc.
+\usepackage[german]{babel}
+
+% lange Tabelle
+\usepackage{tabularx}
+
+% Eigenschaften des PDF
+\usepackage[%
+	pdfborder=0,%
+	colorlinks=false,%
+	linkcolor=black,%
+	menucolor=black,%
+	urlcolor=black,%
+	pdftitle={Arbeitstitel},%
+	pdfauthor={Name},%
+	pdfsubject={Meine Masterarbeit von mir}
+	]{hyperref}
+
+% Kleiner Hack für Versionskompatibilität
+\usepackage{fixltx2e}
+
+% Fußnoten nicht pro Kapitel sondern für komplette Arbeit zählen
+\usepackage{remreset}
+\makeatletter
+	\@removefromreset{footnote}{chapter}
+\makeatother
+
+% Tiefe der Nummerierung für Abschnitte und Inhaltsverzeichnis festlegen
+\setcounter{secnumdepth}4{}
+\setcounter{tocdepth}{3}
+
+% Quellenverwaltung
+% Alternativen:
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1. Biblatex
+% Einige Stile gibt es unter
+% http://wiki.lyx.org/BibTeX/Biblatex#toc3
+%\usepackage[style=authoryear-comp]{biblatex}
+%\usepackage[style=authoryear-comp,sorting=nty]{biblatex}
+%\usepackage[babel,german=guillemets]{csquotes}
+%\bibliography{quellen.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2. bibtex + apacite
+% zum Erstellen von APA-kompatiblen Quellenverzeichnissen und Verweissen
+\usepackage[hyper]{apacite}
+\bibliographystyle{apacite}
+
+% Abkürzungsverwaltung
+% Dokumentation: http://de.wikibooks.org/wiki/LaTeX-W%C3%B6rterbuch:_Abk%C3%BCrzungsverzeichnis
+\usepackage[nohyperlinks,printonlyused]{acronym}
+
+
+% Einbinden von Bilder und ggf. PDF
+\usepackage[final]{graphicx}
+\usepackage{pdfpages}
+
+% TODO
+\usepackage[obeyDraft,
+	ngerman,
+	shadow,
+	textsize=tiny,
+	backgroundcolor=white,
+	linecolor=black
+]{todonotes}
+
+% Noch ein paar zusätzliche Pakete:
+% Zu Ausgabe von WWW-Adressen und Emailadressen
+\usepackage{url}
+
+% Ein paar weitere math. Symbole
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Schön formatierte Brüche ala ¼
+\usepackage{nicefrac}
+
+% Das €-Symbol
+\usepackage{eurosym}
+
+% Freibewegliche Graphiken und Tabellen
+\usepackage{float}
+
+% Optimierung von Tabellen-Linien auf Buch
+\usepackage{booktabs}
+
+% ISO-konforme gr. Buchstaben
+\usepackage{fixmath}
+
+% Zeilennummern
+\usepackage{lineno}
+
+% Das Dokument beginnt
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+% Zusammensetzen der Titelseite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+% Da Template der Uni Erfurt bisschen anders mag, wird die Seite selber
+% zusammen gesetzt.
+
+\begin{titlepage}
+ \thispagestyle{empty}
+  %Institution, an der die Arbeit geschrieben wurde
+  \includegraphics[width=0.30\textwidth]{../bilder/Logo_Universitaet_Erfurt.png}\\
+	Universität Erfurt \\
+	Fakultät \\
+	Studiengang
+
+	%dynamischer Zwischenraum bis Seite voll ist
+	\vfill{}
+
+	\begin{center}
+			\Huge\textbf{Arbeitstyp}
+	\end{center}
+
+	\begin{center}
+			\Huge\textbf{Theme} \\
+			\Large Untertitel
+	\end{center}
+
+	%dynamischer Zwischenraum bis Seite voll ist
+	\vfill{}
+
+%HowTo für Tabulatoren:
+%http://cornitex.wiki-site.com/index.php/Tabulatoren_in_LaTeX_-_Tabbing
+% \> Tabulator, linksbündig
+% \+ Einzug in den nächsten Zeilen um diesen Tabulator erhöhen
+% \- Einzug in den nächsten Zeilen um diesen Tabulator verringern
+\begin{tabbing}
+	Vorgelegt von:\hspace{0.5em} \= Matrikelnummer\hspace{0.7em} \=  Mustermannstra0e \kill
+	Vorgelegt von: \+\> Name\\
+		Anschrift: \+\> Straße \\
+		\-Ort \\
+	Martikelnummer: \> Martikelnummer \\
+	\-Email: \> Email \\[2ex]
+	Betreut durch: \+\> Erstgutachter \> Prof. Dr. XXX \\
+						Zweitgutachterin: \> Prof. Dr. XXX \\
+\end{tabbing}
+
+\vspace{5ex}
+
+% Datum auf Titelseite: Auf Abgabgedatum setzen
+\today{}
+
+\end{titlepage}
+
+\listoftodos{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+% Titelseite zuende
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+% Eigentliches Dokument
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+% Vorspann des Dokumentes
+\frontmatter{}
+\tableofcontents{}
+%\listoffigures{}
+%\listoftables{}
+
+%Hauptteil
+\mainmatter{}
+
+% Einleitung auf 0. setzen
+\addtocounter{chapter}{-1}
+
+
+\chapter{Einleitung}
+\label{sec:einleitung}
+
+
+% Text
+% Hier normal \chapter, \section ... verwenden
+
+
+% Anhang
+
+\appendix{}
+
+\backmatter{}
+
+% Sollten durch eigenltiches BibTeX-file ersetzt werden
+\bibliography{quellen}
+\include{inc/eigenstaendigkeit}
+
+\end{document}
