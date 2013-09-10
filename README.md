@@ -15,10 +15,12 @@ Obviously you will have to know some TeX, but a short introduction
 should be enought.... I case you are fine with the output of the
 template.
 
+To compile it you will need a LaTeX distribution.
 
 Files
 -----
 
-magister.tex: Contains you document
-eigenstaendigkeit.tex: Contains the "Eigenständigkeitserklärung"
-helper.tex: Container a some little helper functions self created
+
+  * magister.tex: Contains you document
+  * eigenstaendigkeit.tex: Contains the "Eigenständigkeitserklärung"
+  * helper.tex: Container a some little helper functions self created
