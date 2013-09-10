@@ -1,0 +1,8 @@
+% Aus Faulheit wird ein Befehl \vgl{} erstellt, der eine Fußnote mit
+% Querverweis auf anderes Kapitel erstellt (-> \label{}
+\newcommand*{\vgl}[1]{\footnote{Vgl. dazu die Ausführungen unter %
+    Kapitel \ref{#1}}}
+
+% Frage und Antwort
+\newcommand{\frage}[1]{{\sc Frage:} \par #1 \par}
+\newcommand{\antwort}[1]{\noindent{\sc Antwort:} \par {#1} }
